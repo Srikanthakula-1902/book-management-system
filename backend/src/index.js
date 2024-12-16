@@ -34,9 +34,11 @@ app.get("/books",async (req,res)=>{
     console.log(query);
     try{
         let books = ""
-        if(query!==""){
+        if(query==""){
+            console.log("getAll");
             books = await getAllBooks();
         } else{
+            console.log("getMatched");
             books = await searchBooksByTitle(query)
         }
         return res.status(201).json({success:true,message:"books fetched",books:books})

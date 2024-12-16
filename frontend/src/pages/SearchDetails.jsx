@@ -10,7 +10,7 @@ const SearchDetails = () => {
     useEffect(()=>{
         setSearchQuery(searchParams.get("query"))
         const getBooksByQuery = async ()=>{
-            const response = await fetch(`http://localhost:3000/books?query=${searchQuery}`,{
+            const response = await fetch(`http://localhost:3000/books?query=${searchParams.get("query")}`,{
                 method:"GET",
               })
             const books = await response.json();
@@ -23,7 +23,22 @@ const SearchDetails = () => {
         <div>
             <Header/>
             {
-                books.map(book=><BookCard key={book.BookID} book={book} setBooks={setBooks}/>)
+               books.length ?  books.map(book=><BookCard key={book.BookID} book={book} setBooks={setBooks}/>) : <div
+               style={{
+                 textAlign: "center",
+                 color: "#555",
+                 fontSize: "18px",
+                 fontWeight: "bold",
+                 marginTop: "20px",
+                 padding: "10px",
+                 border: "1px solid #ccc",
+                 borderRadius: "8px",
+                 backgroundColor: "#f9f9f9",
+               }}
+             >
+               No Books Found
+             </div>
+             
             }
         </div>
     );
