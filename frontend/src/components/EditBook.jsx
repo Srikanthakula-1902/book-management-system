@@ -34,7 +34,7 @@ function EditBook() {
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch(`http://localhost:3000/books/${bookId}`,{
+    const response = await fetch(`https://book-management-system-z6w6.onrender.com/books/${bookId}`,{
       method:"PUT",
       body:JSON.stringify(formData),
       headers: {

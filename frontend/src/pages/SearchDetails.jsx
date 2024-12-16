@@ -10,7 +10,7 @@ const SearchDetails = () => {
     useEffect(()=>{
         setSearchQuery(searchParams.get("query"))
         const getBooksByQuery = async ()=>{
-            const response = await fetch(`http://localhost:3000/books?query=${searchParams.get("query")}`,{
+            const response = await fetch(`https://book-management-system-z6w6.onrender.com/books?query=${searchParams.get("query")}`,{
                 method:"GET",
               })
             const books = await response.json();

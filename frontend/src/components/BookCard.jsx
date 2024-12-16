@@ -8,7 +8,7 @@ function BookCard(props) {
     navigate("/view-book",{state:{book:JSON.stringify(book)}});
   }
   const onDelete = async (bookId)=>{
-    const res = await fetch(`http://localhost:3000/books/${bookId}`,{
+    const res = await fetch(`https://book-management-system-z6w6.onrender.com/books/${bookId}`,{
       method:"DELETE",
     })
     const json = await res.json();
@@ -20,6 +20,7 @@ function BookCard(props) {
     }
   }
   const onEdit = (book)=>{
+    navigate("/edit-book",{state:{formData:JSON.stringify(book)}})
     navigate("/edit-book",{state:{formData:JSON.stringify(book)}})
   }
   return (

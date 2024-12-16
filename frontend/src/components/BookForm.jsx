@@ -19,7 +19,7 @@ function BookForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:3000/books",{
+    const response = await fetch("https://book-management-system-z6w6.onrender.com/books",{
       method:"POST",
       body:JSON.stringify(formData),
       headers: {
